@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { header,url } from './constants/authorization'
 
 const MainContainer = styled.div`
 	display: flex;
@@ -24,6 +25,8 @@ const Footer = styled.div`
 
 class App extends React.Component {
 	render(){
+		console.log(header);
+		console.log(url);
 		return (
 			<MainContainer>
 				<Header>
