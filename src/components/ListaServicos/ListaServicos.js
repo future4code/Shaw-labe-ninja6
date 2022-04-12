@@ -1,34 +1,32 @@
 import Axios from 'axios';
 import React from 'react'
+import Filtro from '../FiltrosDeBusca/FiltrosDeBusca'
 import {url,header} from '../../constants/authorization'
 import carrinho from '../../assets/img/carrinho.png'
-import {MainContainer, CardBox} from './styled'
+import {MainContainer, CardBox, ListaServico} from './styled'
 
 class ListaServicos extends React.Component {
-    state ={
-        servicos: [],
-    }
-    componentDidMount(){
-        this.pegaLista()
-    }
+    
     conversorData = (data) => { //a data originalmente vem muito extensa
         const dia = data.substring(8, 10) //então pegamos esse valor e 
         const mes = data.substring(5, 7) //cortamos oque vem antes e depois 
         const ano = data.substring(0, 4) //dos valores que precisamos
         return `${dia}/${mes}/${ano}`//e retornamos eles com as barras de datas
     }
-    pegaLista = () => {
-        Axios.get(`${url}/jobs`,header).then((resp) => {
-            this.setState({servicos: resp.data.jobs})
-            console.log(resp.data.jobs)
-        }).catch((erro) => {
-            console.log(erro)
-        })
-    };
 
 	render(){
 
-        const listaDeServicos = this.state.servicos.map((servico) => {
+        const listaDeServicos = this.props.servicos.filter((servico) => {
+            return this.props.min === "" || servico.price >= this.props.min;
+          })
+          .filter((servico) => {
+            return this.props.max === "" || servico.price <= this.props.max;
+          })
+          .filter((servico) => {
+            return servico.title
+              .toLowerCase()
+              .includes(this.props.nome.toLowerCase());
+          }).map((servico) => {
             return(
                 <CardBox>
                     <h2>{servico.title}</h2>
@@ -42,10 +40,25 @@ class ListaServicos extends React.Component {
             )
         })
 
-        console.log(this.state.servicos)
+        // console.log(this.state.servicos)
 		return (
 			<MainContainer>
-                {listaDeServicos}
+                <div>
+                    <Filtro
+                        servicos={this.props.servicos}
+                        min={this.props.min}
+                        max={this.props.max}
+                        nome={this.props.nome}
+                        onChangeMin={this.props.onChangeMin}
+                        onChangeMax={this.props.onChangeMax}
+                        onChangeNome={this.props.onChangeNome}
+                        filtros={this.props.filtros}
+                    />
+                </div>
+                <ListaServico>
+                    {listaDeServicos}
+                </ListaServico>
+                
 			</MainContainer>
 		)
 	}
