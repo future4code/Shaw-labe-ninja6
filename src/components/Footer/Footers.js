@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-
 import { SocialIcon } from 'react-social-icons';
+import lee from '../../assets/img/lee.png'
+
 
 const Footer = styled.div`
   display: flex;
@@ -22,7 +23,11 @@ const ListaIcones = styled.ul`
   flex-wrap: wrap;
   
 `;
+const ImagemLee = styled.div`
+display: flex;
+flex-wrap: wrap;
 
+`
 
 
 export class Footers extends React.Component {
@@ -30,24 +35,29 @@ export class Footers extends React.Component {
       
     return (
       <Footer>
+        {/* <ImagemLee><img src={lee}></img></ImagemLee> */}
+        
         <Titulo>
           <h3>Siga-nos nas nossas redes sociais</h3>
+          
           <ListaIcones>
             
-          <SocialIcon url="https://facebook.com" />
+            
+            <SocialIcon target="_blank" url="https://facebook.com" />
           
             
-              <SocialIcon url="https://linkedin.com" />
+              <SocialIcon target="_blank" url="https://linkedin.com" />
           
             
-              <SocialIcon url="https://instagram.com" />
+              <SocialIcon target="_blank" url="https://instagram.com" />
           
             
-              <SocialIcon url="https://twitter.com" />
+              <SocialIcon target="_blank" url="https://twitter.com" />
 
 
           
           </ListaIcones>
+          
         </Titulo>
       </Footer>
     );
