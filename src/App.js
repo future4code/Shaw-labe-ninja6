@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { header,url } from './constants/authorization'
+import Cadastro from './pages/Cadastro/Cadastro'
 
 const MainContainer = styled.div`
 	display: flex;
@@ -34,6 +35,8 @@ class App extends React.Component {
 				</Header>
 				<Main>
 				
+				<Cadastro />
+
 				</Main>
 				<Footer>
 
