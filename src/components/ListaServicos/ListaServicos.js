@@ -1,44 +1,8 @@
 import Axios from 'axios';
 import React from 'react'
-import styled from 'styled-components'
 import {url,header} from '../../constants/authorization'
 import carrinho from '../../assets/img/carrinho.png'
-
-const MainContainer = styled.div`
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: center;
-    width: 90%;
-    margin: 20px;
-`
-const CardBox = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-    width:20%;
-    margin:25px;
-    padding:25px;
-    box-shadow: 5px 5px 10px;
-    border-radius:5px;
-    p{
-        margin-top:0;
-    }
-    div{
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-    }
-    button{
-        margin:10px;
-        margin-left:0;
-        padding:10px;
-        border-radius:5px;
-    }
-    img{
-        width:40px;
-        height:40px;
-    }
-`
+import {MainContainer, CardBox} from './styled'
 
 class ListaServicos extends React.Component {
     state ={
