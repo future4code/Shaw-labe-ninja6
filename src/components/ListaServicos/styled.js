@@ -2,9 +2,16 @@ import styled from 'styled-components'
 
 export const MainContainer = styled.div`
 	display: flex;
-	flex-flow: row wrap;
+	flex-flow: column;
 	justify-content: center;
     width: 90%;
+    margin: 20px;
+`
+export const ListaServico = styled.div`
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+    width: 100%;
     margin: 20px;
 `
 export const CardBox = styled.div`

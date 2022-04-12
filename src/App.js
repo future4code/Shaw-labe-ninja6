@@ -26,6 +26,7 @@ const Footer = styled.div`
 `
 
 class App extends React.Component {
+
 	render(){
 		console.log(header);
 		console.log(url);
