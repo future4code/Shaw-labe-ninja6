@@ -1,23 +1,9 @@
 import React from "react";
-import styled from "styled-components";
-import { header,url } from "../../constants/authorization"
+import { header, url } from "../../constants/authorization";
 import axios from "axios";
+import { MainContainer } from "./style"
 
-const MainContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    input {
-      margin: 5px;
-    }
-  }
-`;
+const inputPagamento = ["Dinheiro", "Cartão", "Pix", "Boleto"];
 
 class Cadastro extends React.Component {
   state = {
@@ -43,9 +29,11 @@ class Cadastro extends React.Component {
   onChangePagamento = (event) => {
     const formaPagamento = event.target.value;
     if (!this.state.inputPagamento.includes(formaPagamento)) {
+      //se não houver o formaPagamento na array ele insere
       const novoArrayPagamento = [...this.state.inputPagamento, formaPagamento];
       this.setState({ inputPagamento: novoArrayPagamento });
     } else {
+      //se houver o formaPagamento no array ele apaga
       const novoArrayPagamento = this.state.inputPagamento.filter(
         (pagamento) => {
           return pagamento !== formaPagamento;
@@ -60,28 +48,42 @@ class Cadastro extends React.Component {
   };
 
   createJob = () => {
-    console.log("chamou aq")
     const body = {
       title: this.state.inputTitulo,
       description: this.state.inputDescricao,
-      price: this.state.inputValor,
+      price: Number(this.state.inputValor),
       paymentMethods: this.state.inputPagamento,
       dueDate: this.state.inputData,
     };
-    axios.post(`${url}/jobs`, body, header)
-    .then(res => { 
-      alert (`${res}`)
-    })
-    .catch(err =>{
-      alert (`${err.response}`)
-    })
-  }
+    axios
+      .post(`${url}/jobs`, body, header)
+      .then((res) => {
+        alert("Serviço inserido com sucesso!");
+        this.setState({
+          inputTitulo: "",
+          inputDescricao: "",
+          inputValor: 0,
+          inputPagamento: [],
+          inputData: "",
+        });
+      })
+      .catch((err) => {
+        alert("Houve algum erro, tente novamente!");
+      });
+  };
 
   render() {
+    const pagamento = inputPagamento.map((name) => {
+      return (
+        <option key={name} value={name}>
+          {name}
+        </option>
+      );
+    });
     return (
       <MainContainer>
         <h1>Cadastre seu serviço</h1>
-        <form>
+        <div>
           <input
             placeholder="Título"
             value={this.state.inputTitulo}
@@ -99,46 +101,22 @@ class Cadastro extends React.Component {
             value={this.state.inputValor}
             onChange={this.onChangeValor}
           />
-          <div>
-            <legend>Formas de pagamentos</legend>
-            <input
-              type="checkbox"
-              value="Dinheiro"
-              onChange={this.onChangePagamento}
-            />
-            <label>Dinheiro</label>
-            <input
-              type="checkbox"
-              value="Cartão"
-              onChange={this.onChangePagamento}
-            />
-            <label>Débito</label>
-            <input
-              type="checkbox"
-              value="Crédito"
-              onChange={this.onChangePagamento}
-            />
-            <label>Crédito</label>
-            <input
-              type="checkbox"
-              value="Pix"
-              onChange={this.onChangePagamento}
-            />
-            <label>Pix</label>
-            <input
-              type="checkbox"
-              value="Boleto"
-              onChange={this.onChangePagamento}
-            />
-            <label>Boleto</label>
-          </div>
+
+          <select
+            value={this.state.inputPagamento}
+            onChange={this.onChangePagamento}
+            multiple
+          >
+            {pagamento}
+          </select>
+
           <input
             type="date"
             value={this.state.inputData}
             onChange={this.onChangeData}
           />
-          <button onClick={this.createJob}>Cadastrar serviço</button>
-        </form>
+          <button onClick={this.createJob}>Cadastrar Serviço</button>
+        </div>
       </MainContainer>
     );
   }
