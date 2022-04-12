@@ -1,9 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import InstagramIcon from "@material-ui/icons/Instagram";
-import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import FacebookIcon from "@material-ui/icons/Facebook";
-import TwitterIcon from "@material-ui/icons/Twitter";
+
+import { SocialIcon } from 'react-social-icons';
 
 const Footer = styled.div`
   display: flex;
@@ -36,16 +34,18 @@ export class Footers extends React.Component {
           <h3>Siga-nos nas nossas redes sociais</h3>
           <ListaIcones>
             
-              <a href="facebook.com"><FacebookIcon/></a>
+          <SocialIcon url="https://facebook.com" />
           
             
-              <a href="linkedin.com"><LinkedInIcon/></a>
+              <SocialIcon url="https://linkedin.com" />
           
             
-              <a href="instagram.com"><InstagramIcon/></a>
+              <SocialIcon url="https://instagram.com" />
           
             
-              <a href="twitter.com"><TwitterIcon/></a>
+              <SocialIcon url="https://twitter.com" />
+
+
           
           </ListaIcones>
         </Titulo>
