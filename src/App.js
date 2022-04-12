@@ -1,12 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import ListaServicos from './components/ListaServicos/ListaServicos'
 import { header,url } from './constants/authorization'
+import Inicial from './pages/Inicial/Inicial'
 
 const MainContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	height: 100vh;
+	/* height: 100vh; */
 	width: 100vw;
 `
 const Header = styled.div`
@@ -33,7 +35,9 @@ class App extends React.Component {
 
 				</Header>
 				<Main>
-				
+					<Inicial>
+
+					</Inicial>
 				</Main>
 				<Footer>
 
