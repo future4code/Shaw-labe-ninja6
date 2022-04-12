@@ -34,7 +34,7 @@ padding-left: 60%;
 `
 
 
-export class Headers extends React.Component{
+class Headers extends React.Component{
     
     render(){
         return<Header>
@@ -51,3 +51,5 @@ export class Headers extends React.Component{
     }
 }
 
+
+export default Headers

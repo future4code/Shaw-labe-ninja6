@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import ListaServicos from './components/ListaServicos/ListaServicos'
 import { header,url } from './constants/authorization'
 import Inicial from './pages/Inicial/Inicial'
+// import Headers from './components/Headers/Headers'
 
 const MainContainer = styled.div`
 	display: flex;
@@ -33,7 +34,7 @@ class App extends React.Component {
 		return (
 			<MainContainer>
 				<Header>
-
+				{/* <Headers/> */}
 				</Header>
 				<Main>
 					<Inicial>
