@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-// import ListaServicos from "./components/ListaServicos/ListaServicos";
-// import { header, url } from "./constants/authorization";
+import ListaServicos from "./components/ListaServicos/ListaServicos";
+import { header, url } from "./constants/authorization";
 import Inicial from "./pages/Inicial/Inicial";
 import Headers from "./components/Headers/Headers";
 import { Footers } from "./components/Footer/Footers";
-// import Carrinho from "./components/Carrinho/Carrinho";
+import Carrinho from "./components/Carrinho/Carrinho";
 import Cadastro from "./pages/Cadastro/Cadastro";
 const MainContainer = styled.div`
   display: flex;
