@@ -4,8 +4,15 @@ export const MainContainer = styled.div`
 	display: flex;
 	flex-flow: column;
 	justify-content: center;
-    width: 90%;
+    align-items: center;
+    width: 95%;
     margin: 20px;
+    .filtros{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        width:95%;
+    }
 `
 export const ListaServico = styled.div`
 	display: flex;
@@ -19,7 +26,7 @@ export const CardBox = styled.div`
 	flex-direction: column;
 	justify-content: space-between;
     width:20%;
-    margin:25px;
+    margin:15px;
     padding:25px;
     box-shadow: 5px 5px 10px;
     border-radius:5px;

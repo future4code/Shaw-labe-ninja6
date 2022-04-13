@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import ListaServicos from './components/ListaServicos/ListaServicos'
 import { header,url } from './constants/authorization'
 import Cadastro from './pages/Cadastro/Cadastro'
 import Inicial from './pages/Inicial/Inicial'
@@ -38,8 +37,9 @@ class App extends React.Component {
 					<Headers/>
 				</Header>
 				<Main>
-					<Cadastro/>
-					<Inicial/>	
+					<Cadastro
+					/>
+					<Inicial/>
 				</Main>
 				<Footer>
 					<Footers/>
