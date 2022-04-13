@@ -3,17 +3,15 @@ import styled from "styled-components";
 import { SocialIcon } from 'react-social-icons';
 import lee from '../../assets/img/lee.png'
 
-
 const Footer = styled.div`
   display: flex;
   width: 100%;
-  height: 100px;
-  background-color: lightgray;
+  background-color: lightblue;
 `;
 const Titulo = styled.div`
   display: flex;
-  
-  margin-left: 70%;
+  justify-content: center;
+  width: 100%;
   align-items: center;
 `;
 
@@ -24,40 +22,28 @@ const ListaIcones = styled.ul`
   
 `;
 const ImagemLee = styled.div`
-display: flex;
-flex-wrap: wrap;
-
+  display: flex;
+  flex-wrap: wrap;
+  img{
+    width:150px;
+    height:200px;
+    margin-left: 30px;
+  }
 `
-
-
 export class Footers extends React.Component {
   render() {
       
     return (
       <Footer>
-        {/* <ImagemLee><img src={lee}></img></ImagemLee> */}
-        
+        <ImagemLee><img src={lee}></img></ImagemLee>
         <Titulo>
           <h3>Siga-nos nas nossas redes sociais</h3>
-          
           <ListaIcones>
-            
-            
             <SocialIcon target="_blank" url="https://facebook.com" />
-          
-            
               <SocialIcon target="_blank" url="https://linkedin.com" />
-          
-            
               <SocialIcon target="_blank" url="https://instagram.com" />
-          
-            
               <SocialIcon target="_blank" url="https://twitter.com" />
-
-
-          
           </ListaIcones>
-          
         </Titulo>
       </Footer>
     );
