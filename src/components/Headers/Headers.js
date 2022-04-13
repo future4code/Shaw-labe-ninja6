@@ -3,6 +3,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import styled from 'styled-components'
 
 
+
 const Header = styled.div`
 	width: 100%;
 	height: 100px;
@@ -43,7 +44,6 @@ class Headers extends React.Component{
             </Titulo>
            <Ninja><h2>Seja um Ninja</h2></Ninja>
             <Icone>
-                
             <ShoppingCartIcon fontSize="large"/>
             </Icone>
             </Header>
