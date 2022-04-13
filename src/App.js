@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import ListaServicos from "./components/ListaServicos/ListaServicos";
-import { header, url } from "./constants/authorization";
+// import ListaServicos from "./components/ListaServicos/ListaServicos";
+// import { header, url } from "./constants/authorization";
 import Inicial from "./pages/Inicial/Inicial";
 import Headers from "./components/Headers/Headers";
 import { Footers } from "./components/Footer/Footers";
-import Carrinho from "./components/Carrinho/Carrinho";
+// import Carrinho from "./components/Carrinho/Carrinho";
 import Cadastro from "./pages/Cadastro/Cadastro";
 const MainContainer = styled.div`
   display: flex;
@@ -34,24 +34,24 @@ class App extends React.Component {
   };
 
 
-  irParainicial = () => {
-    this.setState({ paginaAtual: "home" });
+  irHome = (inicial) => {
+    this.setState({ paginaAtual: inicial });
   };
 
-  irParaCadastro = () => {
-    this.setState({ paginaAtual: "cadastro" });
+  irParaCadastro = (cadastro) => {
+    this.setState({ paginaAtual: cadastro });
   };
 
   renderizaPagina = () => {
-    switch (this.state.pagina) {
+    switch (this.state.paginaAtual) {
       case "home":
-        return <Cadastro irParaCadastro={this.irParaCadastro} />;
-        break;
+        return <Inicial irPaginaHome={this.irHome}/>
+        
 		case "cadastro":
-			return <Inicial irParaHome={this.irParaHome}/>
+			return <Cadastro paginaCadastro={this.irParaCadastro} />;
       default:
         return "Erro página não encontrada"
-        break;
+        
     }
   };
 
@@ -62,13 +62,13 @@ class App extends React.Component {
 
     // console.log(header);
     // console.log(url);
+
     return (
       <MainContainer>
         <Headers />
-		{this.renderizaPagina()}
-		<Cadastro/>
+	
         <Main>
-			
+			{this.renderizaPagina}
 
 			
 			

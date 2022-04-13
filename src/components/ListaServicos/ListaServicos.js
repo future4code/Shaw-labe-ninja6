@@ -1,7 +1,7 @@
-import Axios from 'axios';
+// import Axios from 'axios';
 import React from 'react'
 import Filtro from '../FiltrosDeBusca/FiltrosDeBusca'
-import { url, header } from '../../constants/authorization'
+// import { url, header } from '../../constants/authorization'
 import carrinho from '../../assets/img/carrinho.png'
 import { MainContainer, CardBox, ListaServico } from './styled'
 import Ordenação from '../Ordenação/Ordenação';
