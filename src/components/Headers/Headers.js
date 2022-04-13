@@ -29,13 +29,14 @@ const Ninja = styled.div`
 
 class Headers extends React.Component {
   render() {
+    console.log(this.props.irParaCadastro)
     return (
       <Header>
         <Titulo>
           <h1>LabeNinjas</h1>
         </Titulo>
         <Ninja>
-          <h3>Seja um Ninja</h3>
+          <h3 onClick={this.props.irParaCadastro}>Seja um Ninja</h3>
           <ShoppingCartIcon fontSize="large" />
         </Ninja>
         {/* <Icone>
