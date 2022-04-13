@@ -21,8 +21,8 @@ class Inicial extends React.Component {
     pegaLista = () => {
         axios.get(`${url}/jobs`, header).then((resp) => {
             this.setState({ servicos: resp.data.jobs })
-            // console.log(resp.data.jobs)
-            // console.log(this.state.servicos)
+            console.log(resp.data.jobs)
+            console.log(this.state.servicos)
         }).catch((erro) => {
             console.log(erro)
         })

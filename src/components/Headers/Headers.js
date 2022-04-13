@@ -28,19 +28,14 @@ const Ninja = styled.div`
 `;
 
 class Headers extends React.Component {
-  alterarPagina = ()=>{
-    this.props.paginaCadastro("cadastro")
-
-  }
   render() {
-    
     return (
       <Header>
         <Titulo>
           <h1>LabeNinjas</h1>
         </Titulo>
         <Ninja>
-          <h3 onClick={this.alteraPagina}>Seja um Ninja</h3>
+          <h3>Seja um Ninja</h3>
           <ShoppingCartIcon fontSize="large" />
         </Ninja>
         {/* <Icone>
