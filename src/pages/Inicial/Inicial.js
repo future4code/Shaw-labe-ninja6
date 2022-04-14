@@ -8,31 +8,38 @@ import { MainContainer, CardNaruto, Busca } from "./styled";
 import Carrinho from "../../components/Carrinho/Carrinho";
 
 class Inicial extends React.Component {
-  state = {
-    servicos: [],
-    min: "",
-    max: "",
-    nome: "",
-    ordem: 1,
-    valorDeSorteio: "titulo",
-    listaCarrinho: [],
-    mostraCarrinho: false,
-  };
-  componentDidMount() {
-    this.pegaLista();
-  }
-  pegaLista = () => {
-    axios
-      .get(`${url}/jobs`, header)
-      .then((resp) => {
-        this.setState({ servicos: resp.data.jobs });
-        console.log(resp.data.jobs);
-        console.log(this.state.servicos);
-      })
-      .catch((erro) => {
-        console.log(erro);
-      });
-  };
+    state = {
+        servicos: [],
+        min: "",
+        max: "",
+        nome: "",
+        ordem: 1,
+        valorDeSorteio: "titulo",
+        listaCarrinho: [],
+        mostraCarrinho: false,
+    }
+    componentDidMount() {
+        this.pegaLista()
+    }
+    pegaLista = () => {
+        axios.get(`${url}/jobs`, header).then((resp) => {
+            this.setState({ servicos: resp.data.jobs })
+            // console.log(resp.data.jobs)
+            // console.log(this.state.servicos)
+        }).catch((erro) => {
+            console.log(erro)
+        })
+    };
+    onChangeMin = (eve) => {
+        this.setState({ min: eve.target.value });
+        console.log(this.state.min)
+    };
+    onChangeMax = (eve) => {
+        this.setState({ max: eve.target.value });
+    };
+    onChangeNome = (eve) => {
+        this.setState({ nome: eve.target.value });
+    };
 
   adicionaCarrinho = (id) => {
     axios

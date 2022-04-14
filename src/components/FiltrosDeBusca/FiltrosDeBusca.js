@@ -1,10 +1,15 @@
 import React from "react";
-import axios from "axios";
 import styled from 'styled-components'
-import { header, url } from "../../constants/authorization";
 
 const MainContainer = styled.div`
   display: flex;
+  flex-direction: row;
+  input{
+    padding: 10px;
+    margin:5px;
+    border-radius: 15px;
+    border:2px solid #074f8f;
+  }
 `
 
 export default class Filtro extends React.Component {

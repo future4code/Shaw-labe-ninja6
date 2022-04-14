@@ -6,13 +6,18 @@ import lee from '../../assets/img/lee.png'
 const Footer = styled.div`
   display: flex;
   width: 100%;
-  background-color: lightblue;
+  color:#074f8f;
+  font-size: 21px;
 `;
 const Titulo = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
+  height: 120px;
   align-items: center;
+  position:relative;
+  top: 130px;
+  border-top: 3px solid yellow;
 `;
 
 const ListaIcones = styled.ul`
@@ -25,8 +30,10 @@ const ImagemLee = styled.div`
   display: flex;
   flex-wrap: wrap;
   img{
-    width:150px;
-    height:200px;
+    position: absolute;
+    z-index: 1;
+    width:200px;
+    height:250px;
     margin-left: 30px;
   }
 `
