@@ -5,9 +5,7 @@ import Filtro from '../FiltrosDeBusca/FiltrosDeBusca'
 import Ordenação from '../Ordenação/Ordenação';
 import carrinho from '../../assets/img/carrinho.png'
 import { MainContainer, CardBox, ListaServico } from './styled'
-import Modal from '../../pages/Detalhes/Detalhes';
-// import ReactDOM from 'react-dom';
-// import Modal from 'react-modal';
+import Detalhe from '../../pages/Detalhes/Detalhes';
 
 class ListaServicos extends React.Component {
 
@@ -22,7 +20,6 @@ class ListaServicos extends React.Component {
         const ano = data.substring(0, 4) //dos valores que precisamos
         return `${dia}/${mes}/${ano}`//e retornamos eles com as barras de datas
     }
-
     pegaServicoID = (id) => {
         axios.get(`${url}/jobs/${id}`, header).then((resp) => {
             this.setState({ detalhe: resp.data })
@@ -35,7 +32,6 @@ class ListaServicos extends React.Component {
     voltaLista = () => {
         this.setState({mostraDetalhe: false})
     }
-
     render() {
         // console.log(this.state.detalhe)
         const listaDeServicos = this.props.servicos.filter((servico) => {
@@ -58,7 +54,7 @@ class ListaServicos extends React.Component {
             }).map((servico) => {
                 return (
                     <CardBox>
-                        <h2>{servico.title}</h2>
+                        <h2>{servico.title.toUpperCase()}</h2>
                         <p>Disponivel até {this.conversorData(servico.dueDate)}</p>
                         <p>Por apenas R$ {servico.price.toFixed(2)}</p> {/*toFixed(2) faz aparecer até duas casas decimais após o valor, sendo util até para valores em centavos*/}
                         <div>
@@ -70,8 +66,6 @@ class ListaServicos extends React.Component {
                     </CardBox>
                 )
             })
-
-        // console.log(this.state.servicos)
         return (
             <MainContainer>
                 <div className='filtros'>
@@ -96,7 +90,7 @@ class ListaServicos extends React.Component {
                     {listaDeServicos}
                 </ListaServico>
                 { (this.state.mostraDetalhe) ? 
-                    <Modal
+                    <Detalhe
                     conversorData={this.conversorData}
                     mostraDetalhe={this.state.mostraDetalhe}
                     voltaLista={this.voltaLista}

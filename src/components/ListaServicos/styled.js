@@ -28,8 +28,14 @@ export const CardBox = styled.div`
     width:20%;
     margin:15px;
     padding:25px;
-    box-shadow: 5px 5px 10px;
+    box-shadow: 5px 5px 10px grey;
     border-radius:5px;
+    color:#074f8f;
+    transition: 0.2s;
+    :hover{
+        transform: scale(1.1);
+        transition: 0.2s;
+    }
     p{
         margin-top:0;
     }
@@ -39,10 +45,20 @@ export const CardBox = styled.div`
         align-items:center;
     }
     button{
+        cursor: pointer;
         margin:10px;
         margin-left:0;
         padding:10px;
-        border-radius:5px;
+        border:2px solid #074f8f;
+        border-radius:7px;
+        font-size: 18px;
+        color:#074f8f;
+        background-color: inherit;
+        transition: 0.2s;
+        :hover{
+            background-color: #dff0ff;
+            transition: 0.2s;
+        }
     }
     img{
         width:40px;

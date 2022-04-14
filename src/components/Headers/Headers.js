@@ -5,26 +5,34 @@ import styled from "styled-components";
 const Header = styled.div`
   width: 100%;
   height: 100px;
-  background-color: lightgray;
+  /* background-color: lightgray; */
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
-// const Icone = styled.div`
-//   display: flex;
-//   flex-direction: row;
-//   align-items: center;
-//   margin: 50px;
-// `;
 const Titulo = styled.div`
   margin: 40px;
+  h1{
+    cursor:pointer;
+    font-size:41px;
+  }
 `;
 const Ninja = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 30%;
-    margin-right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 20%;
+  margin-right: 40px;
+  h3{
+    cursor:pointer;
+    font-size:21px;
+    color:#074f8f;
+    transition: 0.2s;
+    :hover{
+      transition: 0.2s;
+      color:#72bcff;
+    }
+  }
 `;
 
 class Headers extends React.Component {
@@ -33,15 +41,12 @@ class Headers extends React.Component {
     return (
       <Header>
         <Titulo>
-          <h1>LabeNinjas</h1>
+          <h1 onClick={this.props.home}>LabeNinjas</h1>
         </Titulo>
         <Ninja>
           <h3 onClick={this.props.trocarPagina}>Seja um Ninja</h3>
           <ShoppingCartIcon fontSize="large" />
         </Ninja>
-        {/* <Icone>
-          
-        </Icone> */}
       </Header>
     );
   }

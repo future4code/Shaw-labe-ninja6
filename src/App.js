@@ -10,21 +10,22 @@ const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* height: 100vh; */
   width: 100vw;
 `;
  const Header = styled.div`
  	width: 100%;
- 	height: 100px;
- 	background-color: lightgray;
+ 	height: 120px;
+   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items:center;
+  border-bottom: 3px solid yellow;
  `
 const Main = styled.div`
   width: 100%;
 `;
  const Footer = styled.div`
  	width: 100%;
- 	height: 100px;
- 	background-color: lightgray;
 `
 
 class App extends React.Component {
@@ -36,15 +37,17 @@ class App extends React.Component {
   trocarPagina = () => {
     this.setState({ trocarPagina: !this.state.trocarPagina})
   }
+  home =() => {
+    this.setState({ trocarPagina: true})
+  }
     
-
   render() {
     const paginaAtual = this.state.trocarPagina ? <Inicial /> : <Cadastro trocarPagina={this.trocarPagina}/>
 
     return (
       <MainContainer>
         <Header>
-					<Headers trocarPagina={this.trocarPagina}/>
+					<Headers trocarPagina={this.trocarPagina} home={this.home}/>
 				</Header>
         <Main>
 			  {paginaAtual}
