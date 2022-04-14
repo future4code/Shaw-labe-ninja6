@@ -7,46 +7,54 @@ import Headers from './components/Headers/Headers'
 import {Footers} from './components/Footer/Footers'
 
 const MainContainer = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	width: 100vw;
-`
-const Header = styled.div`
-	width: 100%;
-	height: 100px;
-	background-color: lightgray;
-`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* height: 100vh; */
+  width: 100vw;
+`;
+ const Header = styled.div`
+ 	width: 100%;
+ 	height: 100px;
+ 	background-color: lightgray;
+ `
 const Main = styled.div`
-	width: 100%;
-`
-const Footer = styled.div`
-	width: 100%;
-	height: 100px;
-	background-color: lightgray;
+  width: 100%;
+`;
+ const Footer = styled.div`
+ 	width: 100%;
+ 	height: 100px;
+ 	background-color: lightgray;
 `
 
 class App extends React.Component {
+  state = {
+    // paginaAtual: "home",
+    trocarPagina: true,
+  };
 
-	render(){
-		console.log(header);
-		console.log(url);
-		return (
-			<MainContainer>
-				<Header>
-					<Headers/>
+  trocarPagina = () => {
+    this.setState({ trocarPagina: !this.state.trocarPagina})
+  }
+    
+
+  render() {
+    const paginaAtual = this.state.trocarPagina ? <Inicial /> : <Cadastro trocarPagina={this.trocarPagina}/>
+
+    return (
+      <MainContainer>
+        <Header>
+					<Headers trocarPagina={this.trocarPagina}/>
 				</Header>
-				<Main>
-					<Cadastro
-					/>
-					<Inicial/>
-				</Main>
-				<Footer>
+        <Main>
+			  {paginaAtual}
+        </Main>
+        <Footer>
 					<Footers/>
 				</Footer>
-			</MainContainer>
-		)
-	}
+      </MainContainer>
+    );
+  }
 }
 
-export default App
+export default App;
