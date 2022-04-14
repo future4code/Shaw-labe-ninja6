@@ -1,18 +1,29 @@
-import Axios from 'axios';
 import React from 'react';
-import { url, header } from '../../constants/authorization'
+import styled from 'styled-components'
 
-
-
+const MainContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color:#074f8f;
+  font-size: 21px;
+  label{
+    margin-right:5px;
+  }
+  select{
+    padding: 7px;
+    margin:5px;
+    border-radius: 15px;
+    border:2px solid #074f8f;
+  }
+`
 
 class Ordenação extends React.Component {
-
 
     render() {
 
         return (
-
-            <div>
+            <MainContainer>
                 <label for="sort">Ordenação: </label>
                 <select
                     name="sort"
@@ -30,16 +41,10 @@ class Ordenação extends React.Component {
                 >
                     <option value={1}>Crescente</option>
                     <option value={-1}>Decrescente</option>
-
                 </select>
-
-            </div>
+            </MainContainer>
         )
     }
 }
-
-
-
-
 
 export default Ordenação
