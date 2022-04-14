@@ -5,6 +5,7 @@ import { header, url } from "../../constants/authorization";
 
 const MainContainer = styled.div`
   display: flex;
+  flex-direction: column;
 `
 
 export default class Filtro extends React.Component {
