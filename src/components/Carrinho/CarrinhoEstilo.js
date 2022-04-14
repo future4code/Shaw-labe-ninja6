@@ -41,6 +41,7 @@ export const MainContainer = styled.div`
     font-size: 10px;
     background-color: inherit;
     transition: 0.2s;
+    font-weight: bold;
     :hover {
       background-color: #dff0ff;
       transition: 0.2s;
@@ -66,7 +67,6 @@ export const MainContainer = styled.div`
 
 export const Produto = styled.div`
   border: 2px solid #074f8f;
-  /* padding: 15px; */
   margin: 10px;
   width: 30rem;
 `;
