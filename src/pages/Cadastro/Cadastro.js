@@ -116,6 +116,7 @@ class Cadastro extends React.Component {
             onChange={this.onChangeData}
           />
           <button onClick={this.createJob}>Cadastrar Serviço</button>
+          <button onClick={this.props.trocarPagina}>Voltar</button>
         </div>
       </MainContainer>
     );
