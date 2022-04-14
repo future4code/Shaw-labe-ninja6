@@ -30,50 +30,26 @@ const Main = styled.div`
 
 class App extends React.Component {
   state = {
-    paginaAtual: "home",
+    // paginaAtual: "home",
+    trocarPagina: true,
   };
 
-
-  irHome = (inicial) => {
-    this.setState({ paginaAtual: inicial });
-  };
-
-  irParaCadastro = (cadastro) => {
-    this.setState({ paginaAtual: cadastro });
-  };
-
-  renderizaPagina = () => {
-    switch (this.state.paginaAtual) {
-      case "home":
-        return <Inicial irPaginaHome={this.irHome}/>
-        
-		case "cadastro":
-			return <Cadastro paginaCadastro={this.irParaCadastro} />;
-      default:
-        return "Erro página não encontrada"
-        
-    }
-  };
-
-  
+  trocarPagina = () => {
+    this.setState({ trocarPagina: !this.state.trocarPagina})
+  }
+    
 
   render() {
-    console.log(this.renderizaPagina);
+    const paginaAtual = this.state.trocarPagina ? <Inicial /> : <Cadastro trocarPagina={this.trocarPagina}/>
 
-    // console.log(header);
-    // console.log(url);
 
     return (
       <MainContainer>
-        <Headers />
-	
+        <Headers trocarPagina={this.trocarPagina}/>
         <Main>
-			{this.renderizaPagina}
-
+			  {paginaAtual}
 			
-			
-			
-          <Inicial></Inicial>
+          {/* <Inicial></Inicial> */}
         </Main>
         <Footers></Footers>
       </MainContainer>
