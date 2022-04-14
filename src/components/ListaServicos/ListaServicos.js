@@ -5,10 +5,9 @@ import Filtro from '../FiltrosDeBusca/FiltrosDeBusca'
 import Ordenação from '../Ordenação/Ordenação';
 import carrinho from '../../assets/img/carrinho.png'
 import { MainContainer, CardBox, ListaServico } from './styled'
-import Detalhes from '../../pages/Detalhes/Detalhes';
-import ReactDOM from 'react-dom';
-import Modal from 'react-modal';
-import Inicial from '../../pages/Inicial/Inicial';
+import Modal from '../../pages/Detalhes/Detalhes';
+// import ReactDOM from 'react-dom';
+// import Modal from 'react-modal';
 
 class ListaServicos extends React.Component {
 
@@ -16,8 +15,6 @@ class ListaServicos extends React.Component {
         detalhe: {},
         formaPagamento: [],
         mostraDetalhe: false,
-        modal:false,
-        // modalInfo: "",
     }
     conversorData = (data) => { //a data originalmente vem muito extensa
         const dia = data.substring(8, 10) //então pegamos esse valor e 
@@ -31,15 +28,12 @@ class ListaServicos extends React.Component {
             this.setState({ detalhe: resp.data })
             this.setState({ formaPagamento: resp.data.paymentMethods })
             this.setState({mostraDetalhe: true})
-            this.setState({modal: true})
-            // console.log(this.state.servicoId)
         }).catch((erro) => {
             console.log(erro)
         })
     }
     voltaLista = () => {
         this.setState({mostraDetalhe: false})
-        this.setState({modal: false})
     }
 
     render() {
@@ -101,18 +95,16 @@ class ListaServicos extends React.Component {
                 <ListaServico>
                     {listaDeServicos}
                 </ListaServico>
-                <Detalhes
+                { (this.state.mostraDetalhe) ? 
+                    <Modal
                     conversorData={this.conversorData}
                     mostraDetalhe={this.state.mostraDetalhe}
                     voltaLista={this.voltaLista}
                     detalhe={this.state.detalhe}
                     formaPagamento={this.state.formaPagamento}
                     />
-                <Modal
-                    voltaLista={this.voltaLista}
-                >
-                    <h1>OI</h1>
-                </Modal>
+                : null }
+                
             </MainContainer>
         )
     }
