@@ -1,23 +1,25 @@
 import axios from "axios";
 import React from "react";
 import { url, header } from "../../constants/authorization";
-import { MainContainer } from "./CarrinhoEstilo";
+import { MainContainer, Produto } from "./CarrinhoEstilo";
 
 export default class Carrinho extends React.Component {
   render() {
     const mapCarrinho = this.props.listaCarrinho.map((servicos) => {
       return (
-        <div>
+        <Produto>
           <table>
-            <tr>
-              <th>Serviço {servicos.title}</th>
-              <th>Preço unitário{servicos.price}</th>
-            </tr>
+            <p>Serviço: {servicos.title}</p>
+            <div>
+              <p>Preço unitário: R$ {servicos.price},00</p>
+            </div>
           </table>
           <div>
-            <button onClick={() => this.props.removeServico(servicos.id)}>X</button>
+            <button className="BotãoExcluir" onClick={() => this.props.removeServico(servicos.id)}>
+              Excluir Serviço
+            </button>
           </div>
-        </div>
+        </Produto>
       );
     });
 
@@ -30,18 +32,20 @@ export default class Carrinho extends React.Component {
       <MainContainer>
         <div className="conteudo">
           <div>
-             <h4>Carrinho</h4>
+            <h1>Carrinho</h1>
           </div>
-            <div>{mapCarrinho}</div>
-            <div> Total: R$ {Total},00</div>
-           <div>
+          <div>{mapCarrinho}</div>
+          <h4> Total da Compra: R$ {Total},00</h4>
+          <div>
             <button onClick={() => this.props.removeTodosOsServicos()}>
-            Remover todos os serviços
+              Remover todos os serviços
             </button>
             <button onClick={() => this.props.finalizarCompra()}>
               Finalizar contratação
             </button>
-            <button onClick={this.props.voltaCarrinho}>Continuar comprando</button>
+            <button onClick={this.props.voltaCarrinho}>
+              Continuar comprando
+            </button>
           </div>
         </div>
       </MainContainer>
