@@ -8,7 +8,13 @@ import { MainContainer, CardBox, ListaServico } from './styled'
 import Detalhe from '../../pages/Detalhes/Detalhes';
 
 class ListaServicos extends React.Component {
-
+  conversorData = (data) => {
+    //a data originalmente vem muito extensa
+    const dia = data.substring(8, 10); //então pegamos esse valor e
+    const mes = data.substring(5, 7); //cortamos oque vem antes e depois
+    const ano = data.substring(0, 4); //dos valores que precisamos
+    return `${dia}/${mes}/${ano}`; //e retornamos eles com as barras de datas
+  };
     state ={
         detalhe: {},
         formaPagamento: [],
@@ -61,7 +67,7 @@ class ListaServicos extends React.Component {
                             <button
                                 onClick={() => this.pegaServicoID(servico.id)}
                             >Mais Detalhes</button>
-                            <img src={carrinho} />
+                            <img onClick={() => this.props.adicionaCarrinho(servico.id)} src={carrinho} />
                         </div>
                     </CardBox>
                 )
@@ -98,10 +104,10 @@ class ListaServicos extends React.Component {
                     formaPagamento={this.state.formaPagamento}
                     />
                 : null }
-                
+             
             </MainContainer>
         )
     }
 }
 
-export default ListaServicos
+export default ListaServicos;
