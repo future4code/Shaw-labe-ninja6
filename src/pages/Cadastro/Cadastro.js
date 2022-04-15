@@ -1,7 +1,9 @@
 import React from "react";
 import { header, url } from "../../constants/authorization";
 import axios from "axios";
-import { MainContainer } from "./style"
+import { MainContainer, Pagamento, DivSelect } from "./style";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
 
 const inputPagamento = ["Dinheiro", "Cartão", "Pix", "Boleto"];
 
@@ -27,20 +29,7 @@ class Cadastro extends React.Component {
   };
 
   onChangePagamento = (event) => {
-    const formaPagamento = event.target.value;
-    if (!this.state.inputPagamento.includes(formaPagamento)) {
-      //se não houver o formaPagamento na array ele insere
-      const novoArrayPagamento = [...this.state.inputPagamento, formaPagamento];
-      this.setState({ inputPagamento: novoArrayPagamento });
-    } else {
-      //se houver o formaPagamento no array ele apaga
-      const novoArrayPagamento = this.state.inputPagamento.filter(
-        (pagamento) => {
-          return pagamento !== formaPagamento;
-        }
-      );
-      this.setState({ inputPagamento: novoArrayPagamento });
-    }
+    this.setState({ inputPagamento: event.target.value });
   };
 
   onChangeData = (event) => {
@@ -73,13 +62,6 @@ class Cadastro extends React.Component {
   };
 
   render() {
-    const pagamento = inputPagamento.map((name) => {
-      return (
-        <option key={name} value={name}>
-          {name}
-        </option>
-      );
-    });
     return (
       <MainContainer>
         <h1>Cadastre seu serviço</h1>
@@ -102,13 +84,36 @@ class Cadastro extends React.Component {
             onChange={this.onChangeValor}
           />
 
-          <select
-            value={this.state.inputPagamento}
-            onChange={this.onChangePagamento}
-            multiple
-          >
-            {pagamento}
-          </select>
+          <FormControl margin="normal" variant="outlined" size="small">
+            {/* habilitar o input abaixo ao clicar sobre o select ele fica por cima do linha */}
+            {/* <InputLabel>Formas de Pagamento</InputLabel> */}
+
+            <DivSelect
+              multiple
+              value={this.state.inputPagamento}
+              onChange={this.onChangePagamento}
+
+              // ao habilitar o código abaixo a função 'cadastrar serviço' para de funcionar'
+
+              // renderValue={(selected) => (
+              //   <div>
+              //     {selected.map((value) => {
+              //       return (
+              //         <Pagamento color="primary" key={value} label={value} />
+              //       );
+              //     })}
+              //   </div>
+              // )}
+            >
+              {inputPagamento.map((name) => {
+                return (
+                  <MenuItem key={name} value={name}>
+                    {name}
+                  </MenuItem>
+                );
+              })}
+            </DivSelect>
+          </FormControl>
 
           <input
             type="date"
