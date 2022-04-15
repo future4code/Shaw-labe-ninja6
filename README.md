@@ -5,10 +5,10 @@ Todos os cards da página principal, incluindo os botões de detalhes e carrinho
 O "seja um ninja" ao ser clicado ele leva para a página de cadastro. Dentro da página você consegue facilmente adicionar qualquer serviço que queira prestar.
 E por último nosso rodapé que leva para as redes sociais que desejar.
 
-### Link Surge
+### Link Surge:
 https://sophisticated-glue.surge.sh
 
-### Prints
+### Prints:
 
 ![1](https://user-images.githubusercontent.com/98921788/163629477-7e2d76ba-fe8c-4fbc-9253-53fa74699369.png)
 
