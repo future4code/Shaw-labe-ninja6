@@ -1,9 +1,16 @@
 ### Projeto LabeNinjas
 
 ### O que funciona:
-Todos os cards da página principal, incluindo os botões de detalhes e carrinho.
-O "seja um ninja" ao ser clicado ele leva para a página de cadastro. Dentro da página você consegue facilmente adicionar qualquer serviço que queira prestar.
-E por último nosso rodapé que leva para as redes sociais que desejar.
+
+- Existem duas áreas no site, a principal é voltada para quem busca os serviços, por isso é mostrada logo quando a pagina carrega, com toda a listagem dos serviços disponiveis, a segunda área é voltada à quem quer oferecer seus serviços, clicando no botão "seja um ninja" será aberta a página de cadastro. Dentro da página você consegue facilmente adicionar qualquer serviço que queira prestar.
+- Antes da listagem de serviços temos nossos filtros, o principal sendo o de busca por nome, depois temos filtros por valor e de ordenação, tanto por preço, titulo ou data limite dos serviços.
+- Em todos os cards da página principal, os botões de detalhes e carrinho abrem uma tela sobreposta com as informações detalhadas e dos itens a serem comprados respectivamente.
+- E por último nosso rodapé que leva para as redes sociais que desejar.
+
+### O que não funciona:
+
+- Seviços podem ser adicionados no carrinho mais de uma vez, não conseguimos implementar limitador nesta parte.
+- Serviços no carrinho somen após atualizar pagina, sendo necessario refazer as compras.
 
 ### Link Surge:
 https://sophisticated-glue.surge.sh
