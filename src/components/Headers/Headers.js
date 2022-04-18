@@ -25,7 +25,7 @@ const Ninja = styled.div`
   margin-right: 40px;
   h3{
     cursor:pointer;
-    font-size:21px;
+    font-size:26px;
     color:#074f8f;
     transition: 0.2s;
     :hover{
@@ -45,7 +45,7 @@ class Headers extends React.Component {
         </Titulo>
         <Ninja>
           <h3 onClick={this.props.trocarPagina}>Seja um Ninja</h3>
-          <ShoppingCartIcon fontSize="large" />
+          {/* <ShoppingCartIcon fontSize="large" /> */}
         </Ninja>
       </Header>
     );

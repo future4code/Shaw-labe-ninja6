@@ -38,6 +38,10 @@ class ListaServicos extends React.Component {
     voltaLista = () => {
         this.setState({mostraDetalhe: false})
     }
+    adicionaEmDetalhes = (id) => {
+        this.setState({mostraDetalhe: false})
+        this.props.adicionaCarrinho(id)
+    }
     render() {
         // console.log(this.state.detalhe)
         const listaDeServicos = this.props.servicos.filter((servico) => {
@@ -102,6 +106,7 @@ class ListaServicos extends React.Component {
                     voltaLista={this.voltaLista}
                     detalhe={this.state.detalhe}
                     formaPagamento={this.state.formaPagamento}
+                    adicionaEmDetalhes={this.adicionaEmDetalhes}
                     />
                 : null }
              

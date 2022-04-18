@@ -9,6 +9,7 @@ const MainContainer = styled.div`
   font-size: 21px;
   label{
     margin-right:5px;
+    margin-left:5px;
   }
   select{
     padding: 7px;
