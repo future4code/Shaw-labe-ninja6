@@ -92,7 +92,6 @@ class Inicial extends React.Component {
   onChangeNome = (eve) => {
     this.setState({ nome: eve.target.value });
   };
-
   onChangeOrdem = (eve) => {
     this.setState({ ordem: eve.target.value });
     console.log(this.state.ordem);

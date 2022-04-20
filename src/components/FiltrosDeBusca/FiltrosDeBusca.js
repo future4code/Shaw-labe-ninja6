@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const MainContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-flow: row;
   input{
     padding: 10px;
     margin:5px;

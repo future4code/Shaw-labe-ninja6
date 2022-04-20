@@ -9,6 +9,7 @@ export const MainContainer = styled.div`
     margin: 20px;
     .filtros{
         display:flex;
+        flex-flow: row wrap;
         justify-content: space-between;
         align-items: center;
         width:95%;

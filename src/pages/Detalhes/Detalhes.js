@@ -30,7 +30,7 @@ class Detalhe extends React.Component {
                     ):(<></>)}
                     <h3>Descrição:</h3>
                     <p>{this.props.detalhe.description}</p>
-                    <button>Adicionar ao Carrinho</button>
+                    <button onClick={() => this.props.adicionaEmDetalhes(this.props.detalhe.id)}>Adicionar ao Carrinho</button>
                 </div>       
             </MainContainer>
         )
